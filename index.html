@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelPro | Modern Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav>
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+                TravelPro
+            </div>
+            <div class="nav-links">
+                <a href="#book">Book</a>
+                <a href="#bookings">My Trips</a>
+                <a href="#support">Help</a>
+                <a href="#rate">Feedback</a>
+            </div>
+            <button id="theme-toggle" class="btn" style="background: var(--bg); color: var(--text-main); border: 1px solid var(--border);">🌙 Dark</button>
+        </nav>
+
+        <header class="hero">
+            <div class="hero-content">
+                <h1>The simplest way to travel.</h1>
+                <p>Book buses, trains, and flights in seconds. Experience a clean, distraction-free interface built for the modern traveler.</p>
+                <a href="#book" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/hero_v2.png" alt="Travel illustration">
+            </div>
+        </header>
+
+        <main>
+            <section id="book" class="booking-section">
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="train">Train</button>
+                    <button class="mode-btn" data-mode="bus">Bus</button>
+                    <button class="mode-btn" data-mode="flight">Flight</button>
+                </div>
+
+                <form id="train-form" class="booking-form active">
+                    <div class="input-group">
+                        <label>Passenger Name</label>
+                        <input type="text" placeholder="e.g. Alex Smith" required>
+                    </div>
+                    <div class="input-group">
+                        <label>From</label>
+                        <input type="text" placeholder="Source City" required>
+                    </div>
+                    <div class="input-group">
+                        <label>To</label>
+                        <input type="text" placeholder="Destination City" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Train Number</label>
+                        <input type="text" placeholder="T-102" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Payment</label>
+                        <select required>
+                            <option value="">Select Method</option>
+                            <option>Credit Card</option>
+                            <option>UPI</option>
+                            <option>Wallet</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn" style="grid-column: span 1;">Book Ticket</button>
+                </form>
+
+                <form id="bus-form" class="booking-form">
+                    <div class="input-group">
+                        <label>Passenger Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Operator</label>
+                        <input type="text" placeholder="Bus Co." required>
+                    </div>
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Payment</label>
+                        <select required>
+                            <option value="">Select Method</option>
+                            <option>Credit Card</option>
+                            <option>UPI</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Book Ticket</button>
+                </form>
+
+                <form id="flight-form" class="booking-form">
+                    <div class="input-group">
+                        <label>Passenger Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Airline</label>
+                        <input type="text" placeholder="Airline Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Class</label>
+                        <select>
+                            <option>Economy</option>
+                            <option>Business</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Payment</label>
+                        <select required>
+                            <option value="">Select Method</option>
+                            <option>Credit Card</option>
+                            <option>UPI</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Book Ticket</button>
+                </form>
+            </section>
+
+            <section id="bookings" style="margin-bottom: 4rem;">
+                <h2 style="margin-bottom: 1.5rem;">My Recent Bookings</h2>
+                <div id="bookings-container" class="bookings-list">
+                    <p class="text-muted">No trips booked yet.</p>
+                </div>
+            </section>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                <section id="rate" class="booking-section" style="margin-bottom: 0;">
+                    <h3>Rate Service</h3>
+                    <div class="rating-stars" id="rating-stars" style="margin: 1rem 0;">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <textarea id="feedback-text" placeholder="Write a review..." style="width: 100%; height: 80px; margin-bottom: 1rem;"></textarea>
+                    <button class="btn" onclick="submitRating()" style="width: 100%;">Submit</button>
+                    <div id="avg-rating" style="margin-top: 1rem; font-size: 0.9rem; font-weight: 600;"></div>
+                </section>
+
+                <section id="support" class="booking-section" style="margin-bottom: 0;">
+                    <h3>Help & Support</h3>
+                    <form id="support-form" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <input type="text" id="support-name" placeholder="Your Name" required>
+                        <textarea id="support-issue" placeholder="What's the issue?" required style="height: 80px;"></textarea>
+                        <button type="submit" class="btn" style="width: 100%;">Raise Ticket</button>
+                    </form>
+                    <div id="support-tickets" style="margin-top: 1rem;"></div>
+                </section>
+            </div>
+        </main>
+
+        <footer style="text-align: center; padding: 4rem 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
+            &copy; 2026 TravelPro. Modern travel simplified.
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
